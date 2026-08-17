@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus AI Student Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Header -->
+        <header class="chat-header">
+            <div class="brand-info">
+                <div class="avatar-header">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <h2>Campus Desk AI</h2>
+                    <span class="status-indicator"><span class="dot"></span> Online</span>
+                </div>
+            </div>
+            <button id="clear-btn" title="Clear Chat Session"><i class="fa-solid fa-rotate-right"></i></button>
+        </header>
+
+        <!-- Chat History Log -->
+        <main class="chat-body" id="chat-body">
+            <div class="message bot-message">
+                <div class="msg-avatar"><i class="fa-solid fa-robot"></i></div>
+                <div class="msg-content">
+                    <p>Hello! 👋 I am your College AI Assistant. Ask me anything regarding <strong>Admissions, Fees, Courses, Exams, Placements, or Facilities</strong>.</p>
+                    <span class="timestamp" id="initial-time"></span>
+                </div>
+            </div>
+        </main>
+
+        <!-- Quick Suggestion Chips -->
+        <div class="suggestions-container">
+            <div class="chip" onclick="sendQuickQuery('What is the admission process?')">🎓 Admission Process</div>
+            <div class="chip" onclick="sendQuickQuery('What is the B.Tech fee structure?')">💳 Fee Structure</div>
+            <div class="chip" onclick="sendQuickQuery('What is the average placement package?')">💼 Placements</div>
+            <div class="chip" onclick="sendQuickQuery('Tell me about hostel facilities')">🏢 Facilities</div>
+            <div class="chip" onclick="sendQuickQuery('How to contact admission office?')">📞 Contact Info</div>
+        </div>
+
+        <!-- Input Form -->
+        <footer class="chat-footer">
+            <form id="chat-form">
+                <input 
+                    type="text" 
+                    id="user-input" 
+                    placeholder="Type your question here..." 
+                    autocomplete="off" 
+                    required
+                />
+                <button type="submit" id="send-btn" aria-label="Send Message">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </form>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
